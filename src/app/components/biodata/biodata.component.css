@@ -1,0 +1,27 @@
+/* Animasi pada foto */
+img {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Animasi pada card */
+  .card {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  /* Keyframes untuk animasi fadeIn */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
