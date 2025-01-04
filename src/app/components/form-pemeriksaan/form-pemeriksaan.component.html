@@ -1,0 +1,41 @@
+<div class="card p-4 shadow-sm">
+    <h3 class="text-center mb-4">{{ pemeriksaanData ? 'Edit' : 'Tambah' }} Data Pemeriksaan</h3>
+    <form [formGroup]="pemeriksaanForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="id_pasien" class="form-label">Pasien</label>
+        <select id="id_pasien" formControlName="id_pasien" class="form-select">
+          <option *ngFor="let pasien of pasienList" [value]="pasien.id_pasien">
+            {{ pasien.nama_pasien }} | umur:{{ pasien.umur }} Tahun
+          </option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="id_dokter" class="form-label">Dokter</label>
+        <select id="id_dokter" formControlName="id_dokter" class="form-select">
+          <option *ngFor="let dokter of dokterList" [value]="dokter.id_dokter">
+            {{ dokter.nama_dokter }} - {{ dokter.spesialis }}
+          </option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="hasil_diagnosa" class="form-label">Hasil Diagnosa</label>
+        <input
+          type="text"
+          id="hasil_diagnosa"
+          formControlName="hasil_diagnosa"
+          class="form-control"
+          placeholder="Masukkan hasil diagnosa"
+        />
+      </div>
+  
+      <div class="d-flex justify-content-end gap-3">
+        <button type="submit" class="btn btn-primary" [disabled]="pemeriksaanForm.invalid">
+          {{ pemeriksaanData ? 'Update' : 'Simpan' }}
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Batal</button>
+      </div>
+    </form>
+  </div>
+  

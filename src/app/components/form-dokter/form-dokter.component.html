@@ -1,0 +1,33 @@
+<div class="card p-4 shadow-sm">
+    <h3 class="text-center mb-4">{{ dokterData ? 'Edit' : 'Tambah' }} Data Pemeriksaan</h3>
+    <form [formGroup]="dokterForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="nama_dokter" class="form-label">Nama Dokter</label>
+        <input
+          type="text"
+          id="nama_dokter"
+          formControlName="nama_dokter"
+          class="form-control"
+          placeholder="Masukkan Nama Dokter"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="spesialis" class="form-label">Spesialis</label>
+        <input
+          type="text"
+          id="spesialis"
+          formControlName="spesialis"
+          class="form-control"
+          placeholder="Masukkan Spesialis "
+        />
+      </div>
+      <div class="d-flex justify-content-end gap-3">
+        <button type="submit" class="btn btn-primary" [disabled]="dokterForm.invalid">
+          {{ dokterData ? 'Update' : 'Simpan' }}
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Batal</button>
+      </div>
+    </form>
+  </div>
+  

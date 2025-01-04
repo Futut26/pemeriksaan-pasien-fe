@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm p-3  sticky-top "> 
+    <div class="container-fluid">
+      <button *ngIf="authService.isLoggedIn()" class="btn m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <a class="navbar-brand btn" >RS APPS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div *ngIf="user authService" class="ms-3 d-flex gap-5">
+            <p class="mb-0 fw-bold">User : {{ user.username }}</p>
+            <p class="mb-0 text-muted">Email :  {{ user.email }}</p>
+          </div>
+            <ul class="navbar-nav ms-auto">
+                <li *ngIf="authService.isLoggedIn()" class="nav-item">
+                  <a class="nav-link btn" routerLink="/pemeriksaan" routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard</a>
+                </li>
+                <li *ngIf="!authService.isLoggedIn()" class="nav-item">
+                  <a class="nav-link btn" routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
+                </li>
+                <li *ngIf="!authService.isLoggedIn()" class="nav-item">
+                  <a class="nav-link btn" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+                </li>
+                <li *ngIf="authService.isLoggedIn()" class="nav-item">
+                  <a class="nav-link btn" (click)="logout()">Logout</a>
+                </li>
+              </ul>
+        </div>
+    </div>
+</nav>
+
+<app-sidebar></app-sidebar>

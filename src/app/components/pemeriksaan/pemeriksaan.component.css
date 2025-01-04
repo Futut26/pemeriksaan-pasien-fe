@@ -1,0 +1,48 @@
+/* Styling card container */
+.card {
+    border-radius: 15px;
+    background-color: #ffffff;
+    border: none;
+  }
+  
+  /* Heading style */
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  /* Table style */
+  .table-bordered {
+    border: 1px solid #dee2e6;
+  }
+  
+  .table thead {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Button style */
+  .btn-outline-warning {
+    border-color: #ffc107;
+    color: #ffc107;
+  }
+  
+  .btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #ffffff;
+  }
+  
+  .btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+  }
+  
+  .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #ffffff;
+  }
+  

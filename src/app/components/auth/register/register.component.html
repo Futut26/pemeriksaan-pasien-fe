@@ -1,0 +1,50 @@
+<div class="register-container d-flex justify-content-center align-items-center">
+    <div class="register-card shadow-lg p-4 rounded">
+      <h2 class="text-center mb-4">Daftar Akun</h2>
+      <form (ngSubmit)="register()">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input
+            type="text"
+            id="username"
+            [(ngModel)]="username"
+            name="username"
+            class="form-control"
+            placeholder="Masukkan username"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="email"
+            name="email"
+            class="form-control"
+            placeholder="Masukkan email"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            id="password"
+            [(ngModel)]="password"
+            name="password"
+            class="form-control"
+            placeholder="Masukkan password"
+            required
+          />
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+        </div>
+      </form>
+      <div class="text-center mt-3">
+        <p>Sudah punya akun? <a routerLink="/login" class="text-decoration-none">Login di sini</a></p>
+      </div>
+    </div>
+  </div>
+  

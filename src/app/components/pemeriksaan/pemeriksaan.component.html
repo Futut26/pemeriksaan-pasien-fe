@@ -1,0 +1,49 @@
+<div class="container-fluid py-5">
+  <div class="card shadow-lg p-4">
+    <h1 class="text-center mb-4 text-primary fw-bold">Data Pemeriksaan Pasien</h1>
+    <div class="mb-3 text-end" *ngIf="!isFormVisible">
+      <button class="btn btn-success" (click)="onAdd()">Tambah Data</button>
+    </div>
+    <div class="mb-3">
+      <!-- Form Tambah/Edit -->
+      <app-form-pemeriksaan *ngIf="isFormVisible" [pemeriksaanData]="selectedPemeriksaan"
+        (formSubmit)="handleFormSubmit($event)" (cancel)="onCancel()"></app-form-pemeriksaan>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle">
+        <thead class="table-primary text-center">
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nama Pasien</th>
+            <th scope="col">Umur</th>
+            <th scope="col">Tanggal Pemeriksaan</th>
+            <th scope="col">Hasil Diagnosa</th>
+            <th scope="col">Dokter</th>
+            <th scope="col">Spesialis</th>
+            <th scope="col">Aksi</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let data of pemeriksaan; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ data.nama_pasien }}</td>
+            <td>{{ data.umur }} Tahun</td>
+            <td>{{ data.created_at | date: 'd MMMM yyyy' }}</td>
+            <td>{{ data.hasil_diagnosa }}</td>
+            <td>{{ data.nama_dokter }}</td>
+            <td>{{ data.spesialis }}</td>
+            <td class="d-flex justify-content-center gap-2">
+              <button class="btn btn-sm btn-outline-warning px-3" (click)="onEdit(data)">
+                <i class="bi bi-pencil-square"></i> Edit
+              </button>
+              <button class="btn btn-sm btn-outline-danger px-3" (click)="onDelete(data.id_pemeriksaan)">
+                <i class="bi bi-trash"></i> Hapus
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
